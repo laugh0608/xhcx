@@ -1,0 +1,46 @@
+<!--
+ * @Atthor: DaBaiLuoBo
+ * @Date: 2020-09-04 19:33:05
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学号查询</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <form action="" method="post">
+            <input type="text" name="" id="" value="" v-model="cardid" />
+            <input @click.prevent="search" @click="clear" type="submit" value="提交查询" />
+        </form>
+        <div>
+            <h3>姓名：{{name}}</h3>
+            <h3>学号：{{schoolid}}</h3>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                cardid: "",
+                name: "",
+                schoolid: "",
+            },
+            methods: {
+                search: async function() {
+                    let httpUrl = "";
+                    let res = await fetch(httpUrl);
+                    this.name = res.name;
+                    this.schoolid = res.school_number;
+                },
+                clear: function () {
+                    this.cardid = "";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
